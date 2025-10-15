@@ -25,12 +25,11 @@ CREATE TABLE books(
 CREATE TABLE borrows(
 	borrow_id INT PRIMARY KEY,
 	reader_id INT,
-	book_id INT,
+	book_id INT,   	 --This will tie the author to their book
   	author_id INT,
 	borrow_date DATE,
 	return_date DATE, 
 	FOREIGN KEY (reader_id) REFERENCES readers(reader_id),
-  	FOREIGN KEY (author_id) REFERENCES authors(author_id) --This will tie the author to their book
 	);
 
 INSERT INTO readers VALUES
@@ -59,7 +58,7 @@ INSERT INTO borrows VALUES
 (1007,3,204,106,'2025-7-02','2025-7-28'),
 (1008,4,203,109,'2025-5-18','2025-6-08'),
 (1009,1,201,105,'2025-6-06','2025-6-28'),
-(1010,3,202,108,'2025-6-00','2025-6-18'),
+(1010,3,202,108,'2025-6-02','2025-6-18'),
 (1011,2,205,107,'2025-6-23','2025-7-11'),
 (1012,3,204,106,'2025-8-20','2025-9-08'),
 (1013,5,204,106,'2025-4-25','2025-5-05'),
