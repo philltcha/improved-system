@@ -63,7 +63,21 @@ INSERT INTO borrows VALUES
 (1013,5,204,'2025-4-25','2025-5-05')
 ;
 --QUERY DATABASE
-SELECT --The amount of times a book had been borrowed
+SELECT --The most borrowed books
+	b.book_id, -- this is where we can siphon data on how often a book was chosen
+	books.title, -- clean presentation
+	COUNT(b.borrow_id) AS total_orders
+FROM 
+	borrows b
+JOIN
+	books ON books.book_id = b.book_id
+	
+GROUP BY
+	b.book_id, books.title,
+ORDER BY
+	total_orders DESC;
+
+SELECT --The most active readers
 	r.reader_id,
 	CONCAT(r.first_name, ' ', r.last_name) AS reader_name,
 	COUNT(b.borrow_id) AS total_orders
@@ -74,5 +88,17 @@ JOIN
 	
 GROUP BY
 	r.reader_id, r.first_name, r.last_name
+ORDER BY
+	total_orders DESC;
+SELECT --The most popular genre
+	books.genre, -- clean presentation
+	COUNT(b.borrow_id) AS total_orders
+FROM 
+	borrows b
+JOIN
+	books ON books.book_id = b.book_id
+	
+GROUP BY
+	books.genre
 ORDER BY
 	total_orders DESC;
