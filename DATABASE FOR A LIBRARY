@@ -66,7 +66,7 @@ INSERT INTO borrows VALUES
 SELECT --The amount of times a book had been borrowed
 	r.reader_id,
 	CONCAT(r.first_name, ' ', r.last_name) AS reader_name,
-	COUNT(b.borrow_id) AS total_orders,
+	COUNT(b.borrow_id) AS total_orders
 FROM 
 	readers r
 JOIN
