@@ -34,16 +34,28 @@ CREATE TABLE borrows(
 	);
 
 INSERT INTO readers VALUES
-(1,'Todd', 'Lansing', 'ToddLansing@gmail.com')
+(1,'Todd', 'Lansing', 'ToddLansing@gmail.com'),
+(2,'Abigail', 'Sertins', 'AbigailSertins@gmail.com'),
+(3,'Michigan', 'Lansing', 'MLansing@gmail.com'),
+(4,'Chad', 'Danforth', 'CDanforth@gmail.com'),
+(5,'Troy', 'Fitz', 'TroyFitz@gmail.com')
 ;	
 INSERT INTO authors VALUES
-(105,'Charlotte Bronte','English');
+(105,'Charlotte Bronte','English'),
+(106,'Malcom X','USA'),
+(107,'Suzanne Collins','USA'),
+(108,'Victor Hugo','English'),
+(109,'Akira Toriyama','Japan');
 INSERT INTO books VALUES
-(201,'Jane Eyre',105, 'Drama');
+(201,'Jane Eyre',105, 'Drama'),
+(202,'Les Miserables',108, 'Drama'),
+(203,'Dragon Ball Z',109, 'Manga'),
+(204,'The Autobiography of Malcom X',106, 'Non-Fiction'),
+(205,'The Hunger Games',107, 'Teen Fiction');
 INSERT INTO borrows VALUES
 (1004,1,201,'2025-4-08','2025-6-08'),
-(1004,1,201,'2025-4-08','2025-6-08'),
-(1004,1,201,'2025-4-08','2025-6-08'),
-(1004,1,201,'2025-4-08','2025-6-08'),
-(1004,1,201,'2025-4-08','2025-6-08'),
+(1004,4,202,'2025-4-08','2025-6-08'),
+(1004,2,205,'2025-4-08','2025-6-08'),
+(1004,3,204,'2025-4-08','2025-6-08'),
+(1004,5,203,'2025-4-08','2025-6-08'),
 ;
