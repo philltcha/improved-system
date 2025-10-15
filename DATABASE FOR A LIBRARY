@@ -73,7 +73,7 @@ JOIN
 	books ON books.book_id = b.book_id
 	
 GROUP BY
-	b.book_id, books.title,
+	b.book_id, books.title
 ORDER BY
 	total_orders DESC;
 
