@@ -29,7 +29,7 @@ CREATE TABLE borrows(
   	author_id INT,
 	borrow_date DATE,
 	return_date DATE, 
-	FOREIGN KEY (reader_id) REFERENCES readers(reader_id),
+	FOREIGN KEY (reader_id) REFERENCES readers(reader_id)
 	);
 
 INSERT INTO readers VALUES
