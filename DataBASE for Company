@@ -1,0 +1,59 @@
+CREATE TABLE Departments (
+    dept_id INT PRIMARY KEY,
+    dept_name VARCHAR(50),
+    location VARCHAR(50)
+);
+
+CREATE TABLE Employees (
+    emp_id INT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    email VARCHAR(100),
+    salary DECIMAL(10,2),
+    hire_date DATE,
+    dept_id INT,
+    FOREIGN KEY (dept_id) REFERENCES Departments(dept_id)
+);
+
+CREATE TABLE Projects (
+    project_id INT PRIMARY KEY,
+    project_name VARCHAR(100),
+    budget DECIMAL(12,2),
+    dept_id INT,
+    FOREIGN KEY (dept_id) REFERENCES Departments(dept_id)
+);
+
+INSERT INTO Departments (dept_id, dept_name, location) VALUES
+(1, 'Human Resources', 'New York'),
+(2, 'Engineering', 'San Francisco'),
+(3, 'Marketing', 'Chicago'),
+(4, 'Finance', 'Boston'),
+(5, 'IT Support', 'Dallas');
+
+INSERT INTO Employees (emp_id, first_name, last_name, email, salary, hire_date, dept_id) VALUES
+(101, 'Emma', 'Johnson', 'emma.johnson@company.com', 72000.00, '2021-05-12', 1),
+(102, 'Liam', 'Brown', 'liam.brown@company.com', 95000.00, '2022-03-18', 2),
+(103, 'Olivia', 'Davis', 'olivia.davis@company.com', 88000.00, '2023-01-25', 2),
+(104, 'Noah', 'Wilson', 'noah.wilson@company.com', 64000.00, '2021-11-30', 3),
+(105, 'Ava', 'Garcia', 'ava.garcia@company.com', 76000.00, '2020-07-10', 4),
+(106, 'Ethan', 'Martinez', 'ethan.martinez@company.com', 54000.00, '2024-04-02', 5),
+(107, 'Sophia', 'Lopez', 'sophia.lopez@company.com', 67000.00, '2022-12-15', 3),
+(108, 'James', 'Hernandez', 'james.hernandez@company.com', 120000.00, '2019-09-01', 2);
+
+INSERT INTO Projects (project_id, project_name, budget, dept_id) VALUES
+(201, 'Onboarding Portal Redesign', 45000.00, 1),
+(202, 'AI Chatbot Integration', 150000.00, 2),
+(203, 'Social Media Campaign 2024', 80000.00, 3),
+(204, 'Quarterly Financial Audit', 60000.00, 4),
+(205, 'Helpdesk Automation', 95000.00, 5),
+(206, 'Cloud Migration Initiative', 200000.00, 2);
+
+SELECT
+	e.emp_id,
+	e.first_name,
+	e.last_name,
+	d.dept_name,
+	d.location
+    FROM Employees e
+    JOIN Departments d on d.dept_id = e.dept_id
+;
